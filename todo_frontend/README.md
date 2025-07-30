@@ -1,82 +1,150 @@
-# Lightweight React Template for KAVIA
+# Todo Frontend - React Application
 
-This project provides a minimal React template with a clean, modern UI and minimal dependencies.
+A modern, responsive todo application built with React, featuring a clean minimalistic design based on Figma mockups.
 
 ## Features
 
-- **Lightweight**: No heavy UI frameworks - uses only vanilla CSS and React
-- **Modern UI**: Clean, responsive design with KAVIA brand styling
-- **Fast**: Minimal dependencies for quick loading times
-- **Simple**: Easy to understand and modify
+- ✨ **Create Todo Items**: Add new tasks with title and detailed descriptions
+- ✏️ **Edit Todo Items**: Update existing tasks with inline editing
+- 🗑️ **Delete Todo Items**: Remove tasks you no longer need
+- ✅ **Mark as Complete**: Move completed tasks to a separate completed list
+- 📋 **List and Filter**: View all todos or filter by completed status
+- 💾 **Persistent Storage**: Data is saved locally and persists between sessions
+- 📱 **Responsive Design**: Works seamlessly on desktop and mobile devices
+- 🎨 **Modern UI**: Clean, minimalistic interface with smooth animations
+
+## Technical Stack
+
+- **React 18.2.0**: Modern React with hooks and functional components
+- **CSS Variables**: Design system with consistent theming
+- **LocalStorage**: Client-side data persistence
+- **Error Boundaries**: Robust error handling
+- **Custom Hooks**: Reusable state management logic
+- **Service Layer**: Organized data operations ready for backend integration
+
+## Project Structure
+
+```
+src/
+├── components/          # Reusable UI components
+│   ├── StatusBar.js     # Mobile status bar
+│   ├── AppBar.js        # App header with navigation
+│   ├── NavigationBar.js # Tab navigation
+│   ├── TodoItem.js      # Individual todo item
+│   └── ErrorBoundary.js # Error handling component
+├── pages/               # Page-level components
+│   ├── TodoMainPage.js  # Main todo list view
+│   ├── AddTodoPage.js   # Add new todo form
+│   ├── EditTodoPage.js  # Edit todo form
+│   └── CompletedTasksPage.js # Completed todos view
+├── hooks/               # Custom React hooks
+│   └── useTodos.js      # Todo state management
+├── services/            # Data layer
+│   └── todoService.js   # Todo operations and validation
+├── App.js               # Main application component
+├── App.css              # Application styles
+└── index.js             # Application entry point
+```
+
+## Design System
+
+The application follows a consistent design system with:
+
+- **Colors**: Light theme with purple accent (#9395d3)
+- **Typography**: Jost font family from Google Fonts
+- **Spacing**: Consistent spacing scale (4px, 8px, 16px, 24px, 32px)
+- **Shadows**: Subtle card shadows for depth
+- **Border Radius**: Consistent 15px radius for interactive elements
 
 ## Getting Started
 
-In the project directory, you can run:
+### Prerequisites
 
-### `npm start`
+- Node.js (version 14 or higher)
+- npm or yarn package manager
 
-Runs the app in development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Installation
 
-### `npm test`
+1. Navigate to the project directory:
+   ```bash
+   cd simple-todo-manager-85321-85330/todo_frontend
+   ```
 
-Launches the test runner in interactive watch mode.
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-### `npm run build`
+3. Start the development server:
+   ```bash
+   npm start
+   ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+4. Open your browser and visit `http://localhost:3000`
 
-## Customization
+### Available Scripts
 
-### Colors
+- `npm start`: Runs the app in development mode
+- `npm test`: Launches the test runner
+- `npm run build`: Builds the app for production
+- `npm run eject`: Ejects from Create React App (not recommended)
 
-The main brand colors are defined as CSS variables in `src/App.css`:
+## Usage
 
-```css
-:root {
-  --kavia-orange: #E87A41;
-  --kavia-dark: #1A1A1A;
-  --text-color: #ffffff;
-  --text-secondary: rgba(255, 255, 255, 0.7);
-  --border-color: rgba(255, 255, 255, 0.1);
-}
-```
+### Adding a Todo
+1. Click the "+" floating action button
+2. Enter a title (required) and optional details
+3. Click "ADD" to save
 
-### Components
+### Editing a Todo
+1. Click the edit (✏️) icon on any todo item
+2. Modify the title or details
+3. Click "Update" to save or "Cancel" to discard changes
 
-This template uses pure HTML/CSS components instead of a UI framework. You can find component styles in `src/App.css`. 
+### Completing a Todo
+1. Click the checkmark (✓) icon on any todo item
+2. The todo will move to the "Completed" section
 
-Common components include:
-- Buttons (`.btn`, `.btn-large`)
-- Container (`.container`)
-- Navigation (`.navbar`)
-- Typography (`.title`, `.subtitle`, `.description`)
+### Viewing Completed Todos
+1. Click the "Completed" tab in the navigation bar
+2. View all completed tasks
+3. Click back arrow to return to active todos
 
-## Learn More
+### Deleting a Todo
+1. Click the delete (🗑️) icon on any todo item
+2. Confirm deletion in the popup dialog
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Data Persistence
 
-### Code Splitting
+The application uses browser localStorage to persist data between sessions. All todos are automatically saved when:
+- Adding new todos
+- Editing existing todos
+- Marking todos as complete
+- Deleting todos
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Future Enhancements
 
-### Analyzing the Bundle Size
+The application is designed to easily integrate with a backend API:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- **TodoService**: Ready for REST API integration
+- **Error Handling**: Comprehensive error boundaries and validation
+- **Loading States**: Infrastructure for async operations
+- **Environment Variables**: Configuration for different environments
 
-### Making a Progressive Web App
+## Browser Support
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- Chrome 60+
+- Firefox 55+
+- Safari 12+
+- Edge 79+
 
-### Advanced Configuration
+## Contributing
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+1. Follow the existing code style and component structure
+2. Add proper documentation for public interfaces
+3. Ensure responsive design principles
+4. Test on multiple screen sizes
 
-### Deployment
+## License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This project is part of the Kavia Code Generation framework.
