@@ -7,7 +7,7 @@ import TodoItem from '../components/TodoItem';
 // PUBLIC_INTERFACE
 const TodoMainPage = ({ todos, onAdd, onEdit, onDelete, onToggle, onShowCompleted }) => {
   /**
-   * Main todo page displaying list of active todos
+   * Main todo page displaying list of active todos with navigation at bottom
    * @param {array} todos - Array of todo objects
    * @param {function} onAdd - Callback to add new todo
    * @param {function} onEdit - Callback to edit todo
@@ -36,10 +36,6 @@ const TodoMainPage = ({ todos, onAdd, onEdit, onDelete, onToggle, onShowComplete
         showCalendar={true}
         onCalendar={handleCalendar}
       />
-      <NavigationBar 
-        activeTab={activeTab}
-        onTabChange={handleTabChange}
-      />
       
       <div className="todo-list">
         {todos.length === 0 ? (
@@ -61,6 +57,11 @@ const TodoMainPage = ({ todos, onAdd, onEdit, onDelete, onToggle, onShowComplete
 
       <button className="add-button" onClick={onAdd} aria-label="Add new todo">
       </button>
+
+      <NavigationBar 
+        activeTab={activeTab}
+        onTabChange={handleTabChange}
+      />
     </div>
   );
 };
